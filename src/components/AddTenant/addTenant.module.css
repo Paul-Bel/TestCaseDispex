@@ -1,0 +1,12 @@
+.blockAddTenant {
+    margin: 20px 30px;
+}
+.addTenantBoxInput {
+    max-width: 70%;
+    border: 2px solid blue;
+    padding: 5px;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
