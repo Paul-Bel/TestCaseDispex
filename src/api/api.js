@@ -13,4 +13,7 @@ export const Api = {
     getNumberHouse(id){
         return instance.get(`Request/houses/${id}`)
     },
+    getFlats(id){
+        return instance.get(`Request/house_flats/${id}`)
+    }
 }

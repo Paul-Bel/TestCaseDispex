@@ -1,33 +1,28 @@
 import {Api} from "../api/api";
 
 
-
-const initialStatHouse = [
-        {"id": 749, "name": "110"},
-        {"id": 819, "name": "112"},
-        {"id": 77, "name": "78к1"},
-        {"id": 78, "name": "80"},
+const initialStat = [
+    {id: 37, prefix: {id: 2, name: 'ул', shortName: 'ул'}, name: 'Горького', cityId: 1, city: 'Тюмень'},
+    {id: 39, prefix: {id: 2, name: 'ул', shortName: 'ул'}, name: 'Депутатская', cityId: 1, city: 'Тюмень'},
 ]
 
-export const houseReducer = (state = initialStatHouse, action) => {
-
+export const streetReducer = (state = initialStat, action) => {
     switch (action.type){
-        case 'SET_HOUSE':
+        case 'SET_STATE':
             // console.log(action.payload.serverState)
-            return [...state, ...action.payload.serverState];
-
+            return [...action.payload.serverState];
         default: return state
     }
 }
 
-export const setHouse = (serverState) => {
-    return {type:'SET_HOUSE', payload: {serverState}}
+export const setCurrentState = (serverState) => {
+    return {type:'SET_STATE', payload: {serverState}}
 }
 
 export const setState = () => (dispatch) => {
-    Api.getNumberHouse()
+    Api.getAdressStrit()
         .then(response =>{
             // debugger
-        if(response.status === 200)  dispatch(setHouse(response.data))
-    })
+            if(response.status === 200)  dispatch(setCurrentState(response.data))
+        })
 }
