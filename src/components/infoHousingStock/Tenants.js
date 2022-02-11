@@ -1,23 +1,19 @@
 import React, {useState} from "react";
-import {Avatar, Button, Fab} from "@mui/material";
+import {Fab} from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
-import ContactPageIcon from '@mui/icons-material/ContactPage';
 import s from './infoHousing.module.css'
 import {ContactPage} from "@mui/icons-material";
 
-function AddIcon() {
-    return null;
-}
 
 export const Tenants = (props) => {
+    console.log(props)
     const [isDone, setIsDone] = useState(true)
-    const [valueName, setValueName] = useState(props.users.name)
-    const [valuePhone, setValuePhone] = useState(props.users.phone)
-    const [valueEmail, setValueEmail] = useState(props.users.email)
+    const [valueName, setValueName] = useState(props.users.name || "")
+    const [valuePhone, setValuePhone] = useState(props.users.phone || "")
+    const [valueEmail, setValueEmail] = useState(props.users.email || "")
     const nameOnBlur = () => {
         setIsDone(true)
-
     }
     let Name = valueName.length === 0 ? props.users.name : valueName
     let Phone = valuePhone.length === 0 ? props.users.phone : valuePhone
@@ -46,16 +42,10 @@ export const Tenants = (props) => {
                      onClick={() => props.deleteUserOfFlat(props.users.bindId)}>
                     <DeleteForeverRoundedIcon/>
                 </Fab>
-
                 <Fab size={'small'} color="secondary" aria-label="edit" onClick={() => setIsDone(false)}>
                     <EditIcon/>
                 </Fab>
             </div>
-            {/*<Button variant="outlined" size={"small"} color={"info"} >edit</Button>*/}
         </div>
     )
 }
-
-// <Fab color="primary" aria-label="add">
-//     <AddIcon />
-// </Fab>

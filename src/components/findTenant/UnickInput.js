@@ -1,12 +1,9 @@
 import React from "react";
-import {buttonClasses, TextField} from "@mui/material";
+import {TextField} from "@mui/material";
 import s from './FindTenant.module.css'
 
-
 export const UnickInput = (props) => {
-let messageError = !props.error
     return (
-<>
     <TextField
         size={'small'}
         className={s.UnickInput}
@@ -20,7 +17,5 @@ let messageError = !props.error
         type={"search"}
         variant="standard"
     />
-{/*<button>+</button>*/}
-</>
     )
 }

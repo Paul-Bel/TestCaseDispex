@@ -1,13 +1,5 @@
 import {Api} from "../api/api";
 
-const newUser = {
-    "Id": 1,
-    "Name": "string",
-    "Phone": "string",
-    "Email": "string",
-    "BindId": 0
-}
-
 const initialStat = [
     {
         "id": 5970,
@@ -25,11 +17,9 @@ export const flatReducer = (state = initialStat, action) => {
         default: return state
     }
 }
-
 export const setCurrentFlat = (serverState) => {
     return {type:'SET_Flat', payload: {serverState}}
 }
-
 export const setFlat = (id) => (dispatch) => {
     Api.getFlats(id)
         .then(response =>{

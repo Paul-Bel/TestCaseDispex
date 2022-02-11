@@ -1,41 +1,31 @@
 import {Api} from "../api/api";
 
-const data = {
-    "Id": "5",
-    "Name": "string",
-    "Phone": "string",
-    "Email": "string",
-    "BindId": "0"
-}
-
 const initialStatHouse = [
     // {id: null, name: '', phone: '', email: '', bindId: null},
     // {id: 33312, name: 'Виктоp', phone: '9224225225', email: 'viktorlopata66@gmail.com', bindId: 29009},
+    // {"id": 39744, "name": "кккккккккк", "phone": "1111111111", "email": "кккккккккк"}
 ]
 
 export const userReducer = (state = initialStatHouse, action) => {
     switch (action.type) {
         case 'SET_User':
-            console.log('reducer: ', action)
-
             return [...action.payload.serverState]
-        // return [...state,
-        //     state[0].id = action.payload.serverState.id];
+        case 'FIND_USER':
+            debugger
+            return [...state, {...action.payload.user}]
         case 'DELETE_USER':
-
-            let filter = state.filter(us => us.bindId !==action.bindId)
+            let filter = state.filter(us => us.bindId !== action.bindId)
             return filter
         default:
             return state
     }
 }
 
-export const setUser = (serverState) => {
-    return {type: 'SET_User', payload: {serverState}}
-}
+export const setUser = (serverState) => ({type: 'SET_User', payload: {serverState}})
 export const delUser = (bindId) => ({type: "DELETE_USER", bindId})
-export const createNewTenants = (AddressId, Phone, Name, Email) => (dispatch) => {
+export const findUser = (user) => ({type: "FIND_USER", payload: {user}})
 
+export const createNewTenants = (AddressId, Phone, Name, Email) => (dispatch) => {
     Api.createUser(Phone, Name, Email)
         .then(response => {
             if (response.status === 200)
@@ -50,7 +40,6 @@ export const createNewTenants = (AddressId, Phone, Name, Email) => (dispatch) =>
                         }
                     )
         })
-
 }
 export const getUserOfFlat = (idFlat) => (dispatch) => {
     Api.setUserOfFlat(idFlat)
@@ -59,11 +48,18 @@ export const getUserOfFlat = (idFlat) => (dispatch) => {
             else dispatch(setUser(initialStatHouse))
         })
 }
-export const deleteUserOfFlat = (bindId) => (dispatch) =>{
-
-    Api.deleteUser(bindId)
+export const deleteUserOfFlat = (bindId) => (dispatch) => {
+    Api.removeFromApartment(bindId)
         .then(response => {
             if (response.status === 200) {
                 dispatch(delUser(bindId))
-            } })
+            }
+        })
+}
+export const findUserFromPhone = (phone) => (dispatch) => {
+    Api.findUser(phone).then(response => {
+        if(response.status === 200){
+            dispatch(findUser(response.data))
+        }
+    })
 }

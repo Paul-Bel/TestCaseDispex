@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    // withCredentials: true,
     baseURL: 'https://dispex.org/api/vtest/',
-    // headers: {'API-KEY': ""},
 })
 export const Api = {
     getAdressStrit() {
@@ -27,7 +25,6 @@ export const Api = {
             })
     },
     updateUser(AddressId, ClientId) {
-
         return instance.put(`HousingStock/bind_client`,
             {
                 "AddressId": AddressId,
@@ -37,7 +34,14 @@ export const Api = {
     setUserOfFlat(flatId) {
         return instance.get(`/HousingStock/clients?addressId=${flatId}`)
     },
-    deleteUser(bindId){
+    removeFromApartment(bindId){
         return instance.delete(`HousingStock/bind_client/${bindId}`)
     },
+    deleteUser(id){
+        return instance.delete(`/HousingStock/account/${id}`)
+    },
+    findUser(phone){
+        return instance.get(`/HousingStock/client?phone=${phone}`)
+    },
+
 }
