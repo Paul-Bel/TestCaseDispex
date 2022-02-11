@@ -48,7 +48,7 @@ const AddTenant = (props) => {
                 <div className={s.addUser}>
                     <div>
                         <UnickInput error={false} onChange={changePhone} value={phone}
-                                    placeholder={"*тел: 8960....."}/>
+                                    placeholder={"*тел: 8........."}/>
                     </div>
                     <div>
                         <UnickInput error={false} onChange={changeEmail} value={eMail} placeholder={'e-mail'}/>
