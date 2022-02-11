@@ -1,6 +1,5 @@
 import {Api} from "../api/api";
 
-
 const initialStat = [
     {id: 37, prefix: {id: 2, name: 'ул', shortName: 'ул'}, name: 'Горького', cityId: 1, city: 'Тюмень'},
     {id: 39, prefix: {id: 2, name: 'ул', shortName: 'ул'}, name: 'Депутатская', cityId: 1, city: 'Тюмень'},
@@ -21,9 +20,9 @@ export const setCurrentState = (serverState) => {
 export const setState = () => (dispatch) => {
     Api.getAdressStrit()
         .then(response =>{
-            if(response.status === 200)
-            console.log(response)
-            let filter = response.data.filter(st=> st.cityId === 1)
+            if(response.status === 200) {
+                let filter = response.data.filter(st => st.cityId === 1)
                 dispatch(setCurrentState(filter))
+            }
         })
 }

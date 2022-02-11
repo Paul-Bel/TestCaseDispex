@@ -2,12 +2,12 @@ import React from "react";
 import s from './infoHousing.module.css'
 import {Tenants} from "./Tenants";
 import {connect} from "react-redux";
-import {deleteUserOfFlat} from "../../redux/usersReducer";
+import {deleteUserOfFlat} from "../../../redux/usersReducer";
 
 const InfoHousing = (props) => {
-    let infoMessage = <span className={s.timeInfo}>выберите адрес жильца</span>
-    let tenantsInfo = props.users.map(us => {
-        return <Tenants users={us} deleteUserOfFlat={props.deleteUserOfFlat}/>
+    let infoMessage = <span className={s.timeInfo}>Выберите адрес, чтобы получить список жильцов или введите номер телефона</span>
+    let tenantsInfo = props.users.map((us, i) => {
+        return <Tenants key={us+i+us} users={us} deleteUserOfFlat={props.deleteUserOfFlat}/>
     })
     return (
         <div className={s.housingBlock}>

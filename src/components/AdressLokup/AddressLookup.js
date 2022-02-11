@@ -4,12 +4,11 @@ import {setState} from "../../redux/streetReducer";
 import {connect} from "react-redux";
 import {getHouse} from "../../redux/houseReducer";
 import {setFlat} from "../../redux/flatReducer";
-import AddTenant from "../AddTenant/AddTenant";
-import InfoHousing from "../infoHousingStock/InfoHousing";
+import AddTenant from "./AddTenant/AddTenant";
+import InfoHousing from "./infoHousingStock/InfoHousing";
 import {createNewTenants, findUserFromPhone, getUserOfFlat} from "../../redux/usersReducer";
-import {InputSelect} from "../inputSrlrct/InputSelect";
-import {UnickInput} from "../findTenant/UnickInput";
-import {Button} from "@mui/material";
+import {InputSelect} from "./inputSrlrct/InputSelect";
+import {FindTetant} from "./findTenant/FindTetant";
 
 
 const AddressLookup = (props) => {
@@ -75,13 +74,9 @@ const AddressLookup = (props) => {
         }
     }
     return (
-        <>
             <div className={s.lukupBlock}>
-                {/*/!*<div>УЛИЦА: {idstreet} </div>*!/  визуализация идентификации*/}
-                {/*<div>Дом: {idhouse} </div>*/}
-                {/*<div>Квартира: {flatId} </div>*/}
                 <div className={s.inputGroop}>
-                    {!street && <div className={s.infoMessage}>выберите адрес</div>}
+                    {!street && <div className={s.infoMessage}>Выберите адрес</div>}
                     <div className={s.inputs}>
                         <InputSelect placeholder={"*улица"} showStreet={showStreet} street={street}
                                      setStreet={setStreet}/>
@@ -94,17 +89,18 @@ const AddressLookup = (props) => {
                     createNewTenants={props.createNewTenants}
                     flatId={flatId}/>
                 <InfoHousing/>
-                <div className={s.find}>
-                    <div>Найти жильца</div>
-                    <UnickInput value={findPhone} onChange={setFindPhoneHandler} erroe={''}
-                                placeholder={"введите номер тел:"}/>
-                    <Button color={"primary"} variant="outlined" onClick={() => props.findUserFromPhone(findPhone)}>Искать</Button>
-                </div>
+                <FindTetant findPhone={findPhone}
+                            setFindPhoneHandler={setFindPhoneHandler}
+                            placeholder={"введите номер тел:"}
+                            findUserFromPhone={props.findUserFromPhone}/>
             </div>
-        </>
     )
 }
 const mapStateToProps = store => store
 export default connect(mapStateToProps, {
     setState, getHouse, setFlat, getUserOfFlat, createNewTenants, findUserFromPhone
 })(AddressLookup)
+
+{/*/!*<div>УЛИЦА: {idstreet} </div>*!/  визуализация идентификации*/}
+{/*<div>Дом: {idhouse} </div>*/}
+{/*<div>Квартира: {flatId} </div>*/}

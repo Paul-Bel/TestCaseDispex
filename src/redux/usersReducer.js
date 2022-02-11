@@ -9,7 +9,6 @@ export const userReducer = (state = initialStatHouse, action) => {
         case 'SET_User':
             return [...action.payload.serverState]
         case 'FIND_USER':
-            debugger
             return [{...action.payload.user}]
         case 'DELETE_USER':
             let filter = state.filter(us => us.bindId !== action.bindId)

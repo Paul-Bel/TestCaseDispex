@@ -2,11 +2,11 @@ import {Api} from "../api/api";
 
 const initialStat = [
     {
-        "id": 5970,
-        "flat": "81",
-        "typeId": 3,
-        "typeName": "Квартира",
-        "name": "81"
+        "id": 0,
+        "flat": "",
+        "typeId": 0,
+        "typeName": "",
+        "name": ""
     },
 ]
 

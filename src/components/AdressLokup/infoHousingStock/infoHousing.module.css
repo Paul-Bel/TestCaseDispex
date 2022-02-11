@@ -1,5 +1,6 @@
 .housingBlock {
     margin: 5px auto;
+    padding: 5px;
     max-width: 650px;
     min-height: 250px;
     display: flex;

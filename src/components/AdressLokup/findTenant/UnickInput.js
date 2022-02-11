@@ -5,6 +5,7 @@ import s from './FindTenant.module.css'
 export const UnickInput = (props) => {
     return (
     <TextField
+        style={{"color":"red"}}
         size={'small'}
         className={s.UnickInput}
         onChange={props.onChange}
@@ -13,7 +14,6 @@ export const UnickInput = (props) => {
         id="filled-search"
         label={props.placeholder}
         placeholder={props.placeholder}
-        // label={props.error && "Error!!!"}
         type={"search"}
         variant="standard"
     />

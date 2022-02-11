@@ -16,8 +16,6 @@ const AddTenant = (props) => {
     const addUser = () => {
         let num = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
         if(!num.test(phone)){return setPhone('номер не верный')}
-        // let validate = /^\w+@\w+\.\w{2,4}$/i
-        // if(!validate.test(eMail)) return setEmail('емаил не верный')
         let _phone = phone
         let _eMail = eMail
         let _name = name
@@ -47,7 +45,9 @@ const AddTenant = (props) => {
             <div className={s.serchMessage}>Добавить жильца для найденной квартиры</div>
                 <div className={s.addUser}>
                     <div>
-                        <UnickInput error={false} onChange={changePhone} value={phone}
+
+
+                        <UnickInput error={(phone==='номер не верный')} onChange={changePhone} value={phone}
                                     placeholder={"*тел: 8ХХХХХХХХХХ"}/>
                     </div>
                     <div>
@@ -69,3 +69,6 @@ const AddTenant = (props) => {
 }
 
 export default AddTenant
+
+// let validate = /^\w+@\w+\.\w{2,4}$/i
+// if(!validate.test(eMail)) return setEmail('емаил не верный')

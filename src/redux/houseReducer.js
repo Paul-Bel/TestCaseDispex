@@ -3,10 +3,7 @@ import {Api} from "../api/api";
 
 
 const initialStatHouse = [
-    {"id": null, "name": null},
-    // {"id": 819, "name": "112"},
-    // {"id": 77, "name": "78к1"},
-    // {"id": 78, "name": "80"},
+    {id: 1631, name: ''}
 ]
 
 export const houseReducer = (state = initialStatHouse, action) => {

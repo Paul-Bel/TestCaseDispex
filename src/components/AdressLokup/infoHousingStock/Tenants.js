@@ -7,7 +7,6 @@ import {ContactPage} from "@mui/icons-material";
 
 
 export const Tenants = (props) => {
-    console.log(props)
     const [isDone, setIsDone] = useState(true)
     const [valueName, setValueName] = useState(props.users.name || "")
     const [valuePhone, setValuePhone] = useState(props.users.phone || "")
