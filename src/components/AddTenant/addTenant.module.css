@@ -1,12 +1,46 @@
 .blockAddTenant {
-    margin: 20px 30px;
-}
-.addTenantBoxInput {
-    max-width: 70%;
-    border: 2px solid blue;
+    margin: 0 auto;
     padding: 5px;
-    margin: 10px 0;
+    max-width: 650px;
+    min-height: 250px;
+    box-shadow: 7px 5px 4px darkblue;
+    border: 2px solid blue;
+    border-radius: 15px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+.boxButton {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+    width: 100%;
+}
+.editButton{
+    width: 100px;
+    margin: 5px 2px;
+
+}
+.addUser {
+    display: flex;
+
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.serchMessage {
+    margin: 0 25%;
+    padding: 5px;
+    color: green;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 5px;
+    /*box-shadow: 7px 5px 4px #3a9b0f;*/
+
 }

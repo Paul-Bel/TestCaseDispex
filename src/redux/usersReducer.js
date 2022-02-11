@@ -11,14 +11,6 @@ const data = {
 const initialStatHouse = [
     // {id: null, name: '', phone: '', email: '', bindId: null},
     // {id: 33312, name: 'Виктоp', phone: '9224225225', email: 'viktorlopata66@gmail.com', bindId: 29009},
-
-    // {
-    //     "id": null,
-    //     "name": "",
-    //     "phone": "",
-    //     "email": "",
-    //     "bindId": null
-    // },
 ]
 
 export const userReducer = (state = initialStatHouse, action) => {

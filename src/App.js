@@ -8,7 +8,7 @@ import {InfoHousing} from "./components/infoHousingStock/InfoHousing";
 function App() {
     // Api.getAdressStrit()
     return (
-        <div className="App">
+        <div className={"App"}>
 
             <Header/>
             <AddressLookup/>

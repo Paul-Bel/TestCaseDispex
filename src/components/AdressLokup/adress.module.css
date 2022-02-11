@@ -1,3 +1,30 @@
 .lukupBlock {
     margin: 20px 30px;
 }
+.inputGroop {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 5px;
+    max-width: 650px;
+    box-shadow: 7px 5px 4px darkblue;
+    border: 2px solid blue;
+    border-radius: 15px;
+    min-height: 100px;
+    align-items: flex-end;
+}
+.inputs{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: flex-end;
+    max-width: 620px;
+}
+.infoMessage{
+    display: flex;
+    color: darkgreen;
+    font-weight: bold;
+    width: 100%;
+    justify-content: center;
+}

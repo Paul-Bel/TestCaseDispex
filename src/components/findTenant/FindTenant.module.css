@@ -1,0 +1,12 @@
+.UnickInput{
+    min-width: 100px;
+    margin: 8px 5px;
+}
+@media screen and (max-width: 550px){
+    .UnickInput{
+        /*min-width: 100px;*/
+        margin: 2px 1px;
+        width: 100px;
+        padding: 0;
+    }
+}
