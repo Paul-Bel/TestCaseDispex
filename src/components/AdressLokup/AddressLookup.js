@@ -97,7 +97,7 @@ const AddressLookup = (props) => {
                 <div className={s.find}>
                     <div>Найти жильца</div>
                     <UnickInput value={findPhone} onChange={setFindPhoneHandler} erroe={''}
-                                placeholder={"введите номер тел.:"}/>
+                                placeholder={"введите номер тел:"}/>
                     <Button color={"primary"} variant="outlined" onClick={() => props.findUserFromPhone(findPhone)}>Искать</Button>
                 </div>
             </div>

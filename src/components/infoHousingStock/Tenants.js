@@ -31,7 +31,7 @@ export const Tenants = (props) => {
                         value={valuePhone}
                         onChange={(e) => setValuePhone(e.currentTarget.value)}
                         onBlur={nameOnBlur}/>}</div>
-                <div className={s.infoTenants}><div className={s.name}><span>✉</span><span>mail:</span> </div>{isDone ? <span className={s.infoUser}>{Email}</span>
+                <div className={s.infoTenants}><div className={s.name}><span>✉</span><span>e-mail:</span> </div>{isDone ? <span className={s.infoUser}>{Email}</span>
                     : <input
                         value={valueEmail}
                         onChange={(e) => setValueEmail(e.currentTarget.value)}
