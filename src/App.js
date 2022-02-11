@@ -1,9 +1,9 @@
 import './App.css';
 import AddressLookup from "./components/AdressLokup/AddressLookup";
 import {Header} from "./components/Header/Header";
-import {AddTenant} from "./components/AddTenant/AddTenant";
+import AddTenant from "./components/AddTenant/AddTenant";
 import {InfoHousing} from "./components/infoHousingStock/InfoHousing";
-import {Api} from "./api/api";
+
 
 function App() {
     // Api.getAdressStrit()
@@ -12,8 +12,8 @@ function App() {
 
             <Header/>
             <AddressLookup/>
-            <InfoHousing/>
-            <AddTenant/>
+
+            {/*<AddTenant/>*/}
 
         </div>
     );

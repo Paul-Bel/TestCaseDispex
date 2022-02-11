@@ -9,7 +9,6 @@ const initialStat = [
 export const streetReducer = (state = initialStat, action) => {
     switch (action.type){
         case 'SET_STATE':
-            // console.log(action.payload.serverState)
             return [...action.payload.serverState];
         default: return state
     }
@@ -22,7 +21,9 @@ export const setCurrentState = (serverState) => {
 export const setState = () => (dispatch) => {
     Api.getAdressStrit()
         .then(response =>{
-            // debugger
-            if(response.status === 200)  dispatch(setCurrentState(response.data))
+            if(response.status === 200)
+            console.log(response)
+            let filter = response.data.filter(st=> st.cityId === 1)
+                dispatch(setCurrentState(filter))
         })
 }

@@ -1,5 +1,13 @@
 import {Api} from "../api/api";
 
+const newUser = {
+    "Id": 1,
+    "Name": "string",
+    "Phone": "string",
+    "Email": "string",
+    "BindId": 0
+}
+
 const initialStat = [
     {
         "id": 5970,
@@ -13,7 +21,6 @@ const initialStat = [
 export const flatReducer = (state = initialStat, action) => {
     switch (action.type){
         case 'SET_Flat':
-            // console.log(action.payload.serverState)
             return [...action.payload.serverState];
         default: return state
     }
