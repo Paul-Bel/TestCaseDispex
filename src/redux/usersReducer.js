@@ -2,8 +2,6 @@ import {Api} from "../api/api";
 
 const initialStatHouse = [
     // {id: null, name: '', phone: '', email: '', bindId: null},
-    // {id: 33312, name: 'Виктоp', phone: '9224225225', email: 'viktorlopata66@gmail.com', bindId: 29009},
-    // {"id": 39744, "name": "кккккккккк", "phone": "1111111111", "email": "кккккккккк"}
 ]
 
 export const userReducer = (state = initialStatHouse, action) => {
@@ -12,7 +10,7 @@ export const userReducer = (state = initialStatHouse, action) => {
             return [...action.payload.serverState]
         case 'FIND_USER':
             debugger
-            return [...state, {...action.payload.user}]
+            return [{...action.payload.user}]
         case 'DELETE_USER':
             let filter = state.filter(us => us.bindId !== action.bindId)
             return filter

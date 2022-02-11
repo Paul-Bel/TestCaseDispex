@@ -70,7 +70,7 @@ const AddressLookup = (props) => {
         if (isFinite(e.currentTarget.value)) {
             setFindPhone(e.currentTarget.value)
         }
-        if (findPhone.length === 10) {
+        if (findPhone.length === 12) {
             setFindPhone(findPhone.substring(1))
         }
     }

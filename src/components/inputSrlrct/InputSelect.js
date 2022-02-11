@@ -7,6 +7,7 @@ export const InputSelect = (props) => {
     return (
         <Autocomplete
             className={s.input}
+            autoFocus={true}
             inputValue={props.street}
             onInputChange={(event, newInputValue) => {
                 props.setStreet(newInputValue);

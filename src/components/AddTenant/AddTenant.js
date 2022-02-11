@@ -11,7 +11,7 @@ const AddTenant = (props) => {
     const cancellationHandler = () => {
         setName('')
         setEmail('')
-        setPhone('+7')
+        setPhone('')
     }
     const addUser = () => {
         let num = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
@@ -25,7 +25,7 @@ const AddTenant = (props) => {
         props.createNewTenants(props.flatId, _phone, _name, _eMail)
         setName('')
         setEmail('')
-        setPhone('+7')
+        setPhone('')
     }
     const changeName = (e) => {
         setName(e.currentTarget.value)
