@@ -11,9 +11,9 @@ export const UnickInput = (props) => {
         value={props.value}
         error={props.error}
         id="filled-search"
-        // label={props.placeholder}
+        label={props.placeholder}
         placeholder={props.placeholder}
-        label={props.error && "Error!!!"}
+        // label={props.error && "Error!!!"}
         type={"search"}
         variant="standard"
     />

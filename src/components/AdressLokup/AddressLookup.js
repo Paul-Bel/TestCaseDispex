@@ -83,7 +83,7 @@ const AddressLookup = (props) => {
                 <div className={s.inputGroop}>
                     {!street && <div className={s.infoMessage}>выберите адрес</div>}
                     <div className={s.inputs}>
-                        <InputSelect placeholder={"улица"} showStreet={showStreet} street={street}
+                        <InputSelect placeholder={"*улица"} showStreet={showStreet} street={street}
                                      setStreet={setStreet}/>
                         <InputSelect placeholder={"дом"} showStreet={showHouse} street={house} setStreet={setHouse}/>
                         <InputSelect placeholder={"дом/офис"} showStreet={showFlat} street={flat} setStreet={setFlat}/>
