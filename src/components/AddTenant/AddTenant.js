@@ -38,7 +38,7 @@ const AddTenant = (props) => {
         if (isFinite(e.currentTarget.value)) {
             setPhone(e.currentTarget.value)
         }
-        if (phone.length === 10) {
+        if (phone.length === 12) {
             setPhone(phone.substring(1))
         }
     }
