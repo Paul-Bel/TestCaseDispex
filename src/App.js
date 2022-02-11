@@ -2,7 +2,6 @@ import './App.css';
 import AddressLookup from "./components/AdressLokup/AddressLookup";
 import {Header} from "./components/Header/Header";
 
-
 let link = document.querySelector('link[rel="shortcut icon"]') ||
     document.querySelector('link[rel="icon"]');
 
@@ -23,5 +22,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
