@@ -24,32 +24,31 @@ const AddressLookup = (props) => {
         props.setState()
     }, [])
     useEffect(() => {
-        let y = filterForInput.find((st) => {
+        let stritID = filterForInput.find((st) => {
             return st.name === street ? st.id : undefined
         })
-        if (y !== undefined) {
-            props.getHouse(y.id)
-            setIdStreet(y.id)
+        if (stritID !== undefined) {
+            props.getHouse(stritID.id)
+            setIdStreet(stritID.id)
         }
     }, [street])
     useEffect(() => {
-        let y = filterForHouse.find((st) => {
+        let houseID = filterForHouse.find((st) => {
             return st.name === house ? st.id : undefined
         })
-        if (y !== undefined) {
-            props.setFlat(y.id)
-            setIdHouse(y.id)
+        if (houseID !== undefined) {
+            props.setFlat(houseID.id)
+            setIdHouse(houseID.id)
         }
     }, [house])
     useEffect(() => {
-        let y = filterForFlat.find((fl) => {
+        let floatID = filterForFlat.find((fl) => {
             return fl.name === flat ? fl.id : undefined
         })
-        if (y !== undefined) {
-            setFlatId(y.id)
-            props.getUserOfFlat(y.id)
+        if (floatID !== undefined) {
+            setFlatId(floatID.id)
+            props.getUserOfFlat(floatID.id)
         }
-
     }, [flat])
 
     let filterForInput = props.streetState
