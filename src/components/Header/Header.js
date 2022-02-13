@@ -3,6 +3,6 @@ import s from './header.module.css'
 
 export const Header = () => {
     return (
-        <div className={s.header}> </div>
+        <div className={s.header}> адаптивная верстка</div>
     )
 }

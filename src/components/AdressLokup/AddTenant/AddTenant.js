@@ -7,7 +7,6 @@ const AddTenant = (props) => {
     const [name, setName] = useState('')
     const [eMail, setEmail] = useState('')
     const [phone, setPhone] = useState('')
-    const [error, setError] = useState()
     const cancellationHandler = () => {
         setName('')
         setEmail('')
@@ -29,7 +28,6 @@ const AddTenant = (props) => {
         setName(e.currentTarget.value)
     }
     const changeEmail = (e) => {
-        setError('')
         setEmail(e.currentTarget.value)
     }
     const changePhone = (e) => {
@@ -45,8 +43,6 @@ const AddTenant = (props) => {
             <div className={s.serchMessage}>Добавить жильца для найденной квартиры</div>
                 <div className={s.addUser}>
                     <div>
-
-
                         <UnickInput error={(phone==='номер не верный')} onChange={changePhone} value={phone}
                                     placeholder={"*тел: 8ХХХХХХХХХХ"}/>
                     </div>

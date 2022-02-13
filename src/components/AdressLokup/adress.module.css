@@ -1,37 +1,5 @@
-.lukupBlock {
-    margin: 1px 30px 50px 30px;
+.lookupBlock {
     z-index: 1;
-}
-.inputGroop {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 5px;
-    max-width: 650px;
-    box-shadow: 7px 5px 4px darkblue;
-    border: 2px solid blue;
-    border-radius: 15px;
-    min-height: 100px;
-}
-.inputs{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: flex-end;
-    max-width: 620px;
-    align-content: space-around;
-    flex-wrap: wrap;
-}
-.infoMessage{
-    display: flex;
-    justify-content: center;
-    margin: 0 25%;
-    padding: 5px;
-    color: green;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 5px;
 }
 .find{
     margin: 0 auto;

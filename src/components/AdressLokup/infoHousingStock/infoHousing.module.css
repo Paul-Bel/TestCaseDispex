@@ -2,7 +2,7 @@
     margin: 5px auto;
     padding: 5px;
     max-width: 650px;
-    min-height: 250px;
+    min-height: 175px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -62,7 +62,7 @@
 }
 
 .timeInfo {
-    margin: 15%;
+    margin: 2% 10%;
     font-weight: bold;
     font-size: 30px;
     font-style: oblique;

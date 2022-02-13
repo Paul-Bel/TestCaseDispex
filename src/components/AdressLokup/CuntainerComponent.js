@@ -6,16 +6,14 @@ import {getHouse} from "../../redux/houseReducer";
 import {setFlat} from "../../redux/flatReducer";
 import AddTenant from "./AddTenant/AddTenant";
 import InfoHousing from "./infoHousingStock/InfoHousing";
-import {createNewTenants, findUserFromPhone, getUserOfFlat} from "../../redux/usersReducer";
-import {InputSelect} from "./inputSrlrct/InputSelect";
+import {createNewTenants, deleteUserOfFlat, findUserFromPhone, getUserOfFlat} from "../../redux/usersReducer";
 import {FindTetant} from "./findTenant/FindTetant";
+import {SearchBox} from "./searchBox/SearchBox";
 
 
-const AddressLookup = (props) => {
+const CuntainerComponent = (props) => {
     const [street, setStreet] = useState('')
-    const [idstreet, setIdStreet] = useState('') //визуализация идентификации
     const [house, setHouse] = useState('')
-    const [idhouse, setIdHouse] = useState('') //визуализация идентификации
     const [flat, setFlat] = useState('')
     const [flatId, setFlatId] = useState('')
     const [findPhone, setFindPhone] = useState('')
@@ -29,7 +27,7 @@ const AddressLookup = (props) => {
         })
         if (stritID !== undefined) {
             props.getHouse(stritID.id)
-            setIdStreet(stritID.id)
+            //setIdStreet(stritID.id) //визуализация идентификации (id)
         }
     }, [street])
     useEffect(() => {
@@ -38,7 +36,7 @@ const AddressLookup = (props) => {
         })
         if (houseID !== undefined) {
             props.setFlat(houseID.id)
-            setIdHouse(houseID.id)
+            //setIdHouse(houseID.id) //визуализация идентификации (id)
         }
     }, [house])
     useEffect(() => {
@@ -73,21 +71,16 @@ const AddressLookup = (props) => {
         }
     }
     return (
-            <div className={s.lukupBlock}>
-                <div className={s.inputGroop}>
-                    {!street && <div className={s.infoMessage}>Выберите адрес</div>}
-                    <div className={s.inputs}>
-                        <InputSelect placeholder={"*улица"} showStreet={showStreet} street={street}
-                                     setStreet={setStreet}/>
-                        <InputSelect placeholder={"дом"} showStreet={showHouse} street={house} setStreet={setHouse}/>
-                        <InputSelect placeholder={"дом/офис"} showStreet={showFlat} street={flat} setStreet={setFlat}/>
-                    </div>
-                </div>
+            <div className={s.lookupBlock}>
+                <SearchBox street={street} showStreet={showStreet} setStreet={setStreet}
+                           showHouse={showHouse} house={house} showFlat={showFlat} flat={flat}
+                           setHouse={setHouse} setFlat={setFlat}
+                />
                 <AddTenant
                     store={props.store}
                     createNewTenants={props.createNewTenants}
                     flatId={flatId}/>
-                <InfoHousing/>
+                <InfoHousing flat={flat} users={props.userState} deleteUserOfFlat={props.deleteUserOfFlat}/>
                 <FindTetant findPhone={findPhone}
                             setFindPhoneHandler={setFindPhoneHandler}
                             placeholder={"введите номер тел:"}
@@ -97,9 +90,12 @@ const AddressLookup = (props) => {
 }
 const mapStateToProps = store => store
 export default connect(mapStateToProps, {
-    setState, getHouse, setFlat, getUserOfFlat, createNewTenants, findUserFromPhone
-})(AddressLookup)
+    setState, getHouse, setFlat, getUserOfFlat,
+    createNewTenants, findUserFromPhone, deleteUserOfFlat
+})(CuntainerComponent)
 
 {/*/!*<div>УЛИЦА: {idstreet} </div>*!/  визуализация идентификации*/}
 {/*<div>Дом: {idhouse} </div>*/}
 {/*<div>Квартира: {flatId} </div>*/}
+//const [idstreet, setIdStreet] = useState('') //визуализация идентификации (id)
+//const [idhouse, setIdHouse] = useState('') //визуализация идентификации (id)
