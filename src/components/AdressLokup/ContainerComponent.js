@@ -11,7 +11,7 @@ import {FindTetant} from "./findTenant/FindTetant";
 import {SearchBox} from "./searchBox/SearchBox";
 
 
-const CuntainerComponent = (props) => {
+const ContainerComponent = (props) => {
     const [street, setStreet] = useState('')
     const [house, setHouse] = useState('')
     const [flat, setFlat] = useState('')
@@ -22,11 +22,11 @@ const CuntainerComponent = (props) => {
         props.setState()
     }, [])
     useEffect(() => {
-        let stritID = filterForInput.find((st) => {
+        let streetID = filterForInput.find((st) => {
             return st.name === street ? st.id : undefined
         })
-        if (stritID !== undefined) {
-            props.getHouse(stritID.id)
+        if (streetID !== undefined) {
+            props.getHouse(streetID.id)
             //setIdStreet(stritID.id) //визуализация идентификации (id)
         }
     }, [street])
@@ -92,7 +92,7 @@ const mapStateToProps = store => store
 export default connect(mapStateToProps, {
     setState, getHouse, setFlat, getUserOfFlat,
     createNewTenants, findUserFromPhone, deleteUserOfFlat
-})(CuntainerComponent)
+})(ContainerComponent)
 
 {/*/!*<div>УЛИЦА: {idstreet} </div>*!/  визуализация идентификации*/}
 {/*<div>Дом: {idhouse} </div>*/}

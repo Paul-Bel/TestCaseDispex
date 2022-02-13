@@ -1,5 +1,5 @@
 import './App.css';
-import AddressLookup from "./components/AdressLokup/CuntainerComponent";
+import AddressLookup from "./components/AdressLokup/ContainerComponent";
 import {Header} from "./components/Header/Header";
 
 let link = document.querySelector('link[rel="shortcut icon"]') ||
