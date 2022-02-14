@@ -17,12 +17,12 @@ export const flatReducer = (state = initialStat, action) => {
         default: return state
     }
 }
-export const setCurrentFlat = (serverState) => {
+export const setCurrentFlatAC = (serverState) => {
     return {type:'SET_Flat', payload: {serverState}}
 }
-export const setFlat = (id) => (dispatch) => {
+export const setFlatTC = (id) => (dispatch) => {
     Api.getFlats(id)
         .then(response =>{
-            if(response.status === 200)  dispatch(setCurrentFlat(response.data))
+            if(response.status === 200)  dispatch(setCurrentFlatAC(response.data))
         })
 }

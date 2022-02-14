@@ -38,7 +38,7 @@ export const Tenants = (props) => {
             </div>
             <div className={s.blockButton}>
                 <Fab size={'small'} color="primary" aria-label="add"
-                     onClick={() => props.deleteUserOfFlat(props.users.bindId)}>
+                     onClick={() => props.deleteUserOfFlatTC(props.users.bindId)}>
                     <DeleteForeverRoundedIcon/>
                 </Fab>
                 <Fab size={'small'} color="secondary" aria-label="edit" onClick={() => setIsDone(false)}>

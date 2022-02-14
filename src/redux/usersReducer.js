@@ -18,9 +18,9 @@ export const userReducer = (state = initialStatHouse, action) => {
     }
 }
 
-export const setUser = (serverState) => ({type: 'SET_User', payload: {serverState}})
-export const delUser = (bindId) => ({type: "DELETE_USER", bindId})
-export const findUser = (user) => ({type: "FIND_USER", payload: {user}})
+export const setUserAC = (serverState) => ({type: 'SET_User', payload: {serverState}})
+export const delUserAC = (bindId) => ({type: "DELETE_USER", bindId})
+export const findUserAC = (user) => ({type: "FIND_USER", payload: {user}})
 
 export const createNewTenants = (AddressId, Phone, Name, Email) => (dispatch) => {
     Api.createUser(Phone, Name, Email)
@@ -31,32 +31,32 @@ export const createNewTenants = (AddressId, Phone, Name, Email) => (dispatch) =>
                             if (response.status === 200)
                                 Api.setUserOfFlat(AddressId)
                                     .then(response => {
-                                        if (response.status === 200) dispatch(setUser(response.data))
-                                        else dispatch(setUser(initialStatHouse))
+                                        if (response.status === 200) dispatch(setUserAC(response.data))
+                                        else dispatch(setUserAC(initialStatHouse))
                                     })
                         }
                     )
         })
 }
-export const getUserOfFlat = (idFlat) => (dispatch) => {
+export const getUserOfFlatTC = (idFlat) => (dispatch) => {
     Api.setUserOfFlat(idFlat)
         .then(response => {
-            if (response.status === 200) dispatch(setUser(response.data))
-            else dispatch(setUser(initialStatHouse))
+            if (response.status === 200) dispatch(setUserAC(response.data))
+            else dispatch(setUserAC(initialStatHouse))
         })
 }
-export const deleteUserOfFlat = (bindId) => (dispatch) => {
+export const deleteUserOfFlatTC = (bindId) => (dispatch) => {
     Api.removeFromApartment(bindId)
         .then(response => {
             if (response.status === 200) {
-                dispatch(delUser(bindId))
+                dispatch(delUserAC(bindId))
             }
         })
 }
-export const findUserFromPhone = (phone) => (dispatch) => {
+export const findUserFromPhoneTC = (phone) => (dispatch) => {
     Api.findUser(phone).then(response => {
         if(response.status === 200){
-            dispatch(findUser(response.data))
+            dispatch(findUserAC(response.data))
         }
     })
 }

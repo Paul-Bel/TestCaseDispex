@@ -4,23 +4,16 @@ import s from "./InputSelect.module.css";
 
 
 export const InputSelect = (props) => {
-
     const onChangeHandler = (event, newInputValue) => {
         props.onChange(newInputValue)
-        props.onChangeFlat && props.onChangeFlat() && alert("квартира сброшена")
-
     }
-    const onClickHandler = () => {
-        alert('dfdf')
-        props.onChangeFlat && props.onChangeFlat('')}
     return (
         <Autocomplete
             className={s.input}
             autoFocus={true}
             inputValue={props.value}
             value={props.value}
-            onInputClick={onClickHandler}
-            onClick={onClickHandler}
+            onInputClick={onChangeHandler}
             onInputChange={onChangeHandler}
             disablePortal
             id="combo-box-demo"

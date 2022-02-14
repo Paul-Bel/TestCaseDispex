@@ -10,7 +10,7 @@ export const FindTetant = (props) => {
             <div className={s.info}>Найти жильца</div>
             <UnickInput value={props.findPhone} onChange={props.setFindPhoneHandler} erroe={''}
                         placeholder={"введите номер тел:"}/>
-            <Button color={"primary"} variant="outlined" onClick={() => props.findUserFromPhone(props.findPhone)}>Искать</Button>
+            <Button color={"primary"} variant="outlined" onClick={() => props.findUserFromPhoneTC(props.findPhone)}>Искать</Button>
         </div>
     )
 }

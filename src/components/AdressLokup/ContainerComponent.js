@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import s from './adress.module.css'
-import {setState} from "../../redux/streetReducer";
+import {setStreetStateTC} from "../../redux/streetReducer";
 import {connect} from "react-redux";
 import {getHouse} from "../../redux/houseReducer";
-import {setFlat} from "../../redux/flatReducer";
+import {setFlatTC} from "../../redux/flatReducer";
 import AddTenant from "./AddTenant/AddTenant";
 import InfoHousing from "./infoHousingStock/InfoHousing";
-import {createNewTenants, deleteUserOfFlat, findUserFromPhone, getUserOfFlat} from "../../redux/usersReducer";
+import {createNewTenants, deleteUserOfFlatTC, findUserFromPhoneTC, getUserOfFlatTC} from "../../redux/usersReducer";
 import {FindTetant} from "./findTenant/FindTetant";
 import {SearchBox} from "./searchBox/SearchBox";
 
@@ -19,10 +19,10 @@ const ContainerComponent = (props) => {
     const [findPhone, setFindPhone] = useState('')
 
     useEffect(() => {
-        props.setState()
+        props.setStreetStateTC()
     }, [])
     useEffect(() => {
-        let streetID = filterForInput.find((st) => {
+        let streetID = filterForStreet.find((st) => {
             return st.name === street ? st.id : undefined
         })
         if (streetID !== undefined) {
@@ -35,7 +35,7 @@ const ContainerComponent = (props) => {
             return st.name === house ? st.id : undefined
         })
         if (houseID !== undefined) {
-            props.setFlat(houseID.id)
+            props.setFlatTC(houseID.id)
             //setIdHouse(houseID.id) //визуализация идентификации (id)
         }
     }, [house])
@@ -45,16 +45,16 @@ const ContainerComponent = (props) => {
         })
         if (floatID !== undefined) {
             setFlatId(floatID.id)
-            props.getUserOfFlat(floatID.id)
+            props.getUserOfFlatTC(floatID.id)
         }
     }, [flat])
 
-    let filterForInput = props.streetState
+    let filterForStreet = props.streetState
     let filterForHouse = props.houseState
     let filterForFlat = props.flatState
-
-    let showStreet = filterForInput.map((st) => {
-        return st.name
+    console.log(filterForStreet)
+    let showStreet = filterForStreet.map((st) => {
+        return st.name ? st.name : ''
     })
     let showHouse = filterForHouse.map((st) => {
         return st.name
@@ -80,18 +80,19 @@ const ContainerComponent = (props) => {
                     store={props.store}
                     createNewTenants={props.createNewTenants}
                     flatId={flatId}/>
-                <InfoHousing flat={flat} users={props.userState} deleteUserOfFlat={props.deleteUserOfFlat}/>
+                <InfoHousing flat={flat} users={props.userState}
+                             deleteUserOfFlatTC={props.deleteUserOfFlatTC} error={props.streetState[0].error}/>
                 <FindTetant findPhone={findPhone}
                             setFindPhoneHandler={setFindPhoneHandler}
                             placeholder={"введите номер тел:"}
-                            findUserFromPhone={props.findUserFromPhone}/>
+                            findUserFromPhoneTC={props.findUserFromPhoneTC}/>
             </div>
     )
 }
 const mapStateToProps = store => store
 export default connect(mapStateToProps, {
-    setState, getHouse, setFlat, getUserOfFlat,
-    createNewTenants, findUserFromPhone, deleteUserOfFlat
+    setStreetStateTC, getHouse, setFlatTC, getUserOfFlatTC,
+    createNewTenants, findUserFromPhoneTC, deleteUserOfFlatTC
 })(ContainerComponent)
 
 {/*/!*<div>УЛИЦА: {idstreet} </div>*!/  визуализация идентификации*/}
