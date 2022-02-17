@@ -21,12 +21,16 @@ export const setCurrentStateAC = (serverState) => {
 }
 
 export const setStreetStateTC = () => (dispatch) => {
+    debugger
     Api.getAdressStrit()
         .then(response =>{
             let filterStreet = response.data.filter(st => st.cityId === 1)
             if(response.status === 200) {
                 dispatch(setCurrentStateAC([{error: false}, ...filterStreet]))
             }
-            else  dispatch(setCurrentStateAC([{error: true}]))
+            else {
+                alert('ERROR')
+                dispatch(setCurrentStateAC([{error: true}]))
+            }
         })
 }
